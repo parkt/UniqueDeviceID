@@ -93,7 +93,7 @@ public class UniqueDeviceID extends CordovaPlugin {
             Boolean bool = (Boolean) method.invoke(cordova, permission);
             hasPermission = bool.booleanValue();
         } catch (NoSuchMethodException e) {
-            Log.w(TAG, "Cordova v" + CordovaWebView.CORDOVA_VERSION + " does not support API 23 runtime permissions so defaulting to GRANTED for " + permission);
+            Log.w(TAG, "Cordova/Appgyver does not support API 23 runtime permissions so defaulting to GRANTED for " + permission);
         }
         return hasPermission;
     }
@@ -103,7 +103,7 @@ public class UniqueDeviceID extends CordovaPlugin {
             java.lang.reflect.Method method = cordova.getClass().getMethod("requestPermission", org.apache.cordova.CordovaPlugin.class ,int.class, java.lang.String.class);
             method.invoke(cordova, plugin, requestCode, permission);
         } catch (NoSuchMethodException e) {
-            throw new Exception("requestPermission() method not found in CordovaInterface implementation of Cordova v" + CordovaWebView.CORDOVA_VERSION);
+            throw new Exception("requestPermission() method not found in CordovaInterface implementation of Cordova/Appgyver");
         }
     }
 }
